@@ -1,0 +1,120 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  adm-zip:
+    specifier: ^0.5.10
+    version: registry.npmmirror.com/adm-zip@0.5.10
+  ramda:
+    specifier: ^0.29.0
+    version: registry.npmmirror.com/ramda@0.29.0
+  xml2js:
+    specifier: ^0.6.2
+    version: registry.npmmirror.com/xml2js@0.6.2
+
+devDependencies:
+  '@types/adm-zip':
+    specifier: ^0.5.0
+    version: registry.npmmirror.com/@types/adm-zip@0.5.0
+  '@types/ramda':
+    specifier: ^0.29.3
+    version: registry.npmmirror.com/@types/ramda@0.29.3
+  '@types/xml2js':
+    specifier: ^0.4.11
+    version: registry.npmmirror.com/@types/xml2js@0.4.11
+  prettier:
+    specifier: ^3.0.1
+    version: registry.npmmirror.com/prettier@3.0.1
+
+packages:
+
+  registry.npmmirror.com/@types/adm-zip@0.5.0:
+    resolution: {integrity: sha512-FCJBJq9ODsQZUNURo5ILAQueuA8WJhRvuihS3ke2iI25mJlfV2LK8jG2Qj2z2AWg8U0FtWWqBHVRetceLskSaw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/adm-zip/-/adm-zip-0.5.0.tgz}
+    name: '@types/adm-zip'
+    version: 0.5.0
+    dependencies:
+      '@types/node': registry.npmmirror.com/@types/node@20.4.8
+    dev: true
+
+  registry.npmmirror.com/@types/node@20.4.8:
+    resolution: {integrity: sha512-0mHckf6D2DiIAzh8fM8f3HQCvMKDpK94YQ0DSVkfWTG9BZleYIWudw9cJxX8oCk9bM+vAkDyujDV6dmKHbvQpg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-20.4.8.tgz}
+    name: '@types/node'
+    version: 20.4.8
+    dev: true
+
+  registry.npmmirror.com/@types/ramda@0.29.3:
+    resolution: {integrity: sha512-Yh/RHkjN0ru6LVhSQtTkCRo6HXkfL9trot/2elzM/yXLJmbLm2v6kJc8yftTnwv1zvUob6TEtqI2cYjdqG3U0Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/ramda/-/ramda-0.29.3.tgz}
+    name: '@types/ramda'
+    version: 0.29.3
+    dependencies:
+      types-ramda: registry.npmmirror.com/types-ramda@0.29.4
+    dev: true
+
+  registry.npmmirror.com/@types/xml2js@0.4.11:
+    resolution: {integrity: sha512-JdigeAKmCyoJUiQljjr7tQG3if9NkqGUgwEUqBvV0N7LM4HyQk7UXCnusRa1lnvXAEYJ8mw8GtZWioagNztOwA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/xml2js/-/xml2js-0.4.11.tgz}
+    name: '@types/xml2js'
+    version: 0.4.11
+    dependencies:
+      '@types/node': registry.npmmirror.com/@types/node@20.4.8
+    dev: true
+
+  registry.npmmirror.com/adm-zip@0.5.10:
+    resolution: {integrity: sha512-x0HvcHqVJNTPk/Bw8JbLWlWoo6Wwnsug0fnYYro1HBrjxZ3G7/AZk7Ahv8JwDe1uIcz8eBqvu86FuF1POiG7vQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/adm-zip/-/adm-zip-0.5.10.tgz}
+    name: adm-zip
+    version: 0.5.10
+    engines: {node: '>=6.0'}
+    dev: false
+
+  registry.npmmirror.com/prettier@3.0.1:
+    resolution: {integrity: sha512-fcOWSnnpCrovBsmFZIGIy9UqK2FaI7Hqax+DIO0A9UxeVoY4iweyaFjS5TavZN97Hfehph0nhsZnjlVKzEQSrQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/prettier/-/prettier-3.0.1.tgz}
+    name: prettier
+    version: 3.0.1
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
+
+  registry.npmmirror.com/ramda@0.29.0:
+    resolution: {integrity: sha512-BBea6L67bYLtdbOqfp8f58fPMqEwx0doL+pAi8TZyp2YWz8R9G8z9x75CZI8W+ftqhFHCpEX2cRnUUXK130iKA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ramda/-/ramda-0.29.0.tgz}
+    name: ramda
+    version: 0.29.0
+    dev: false
+
+  registry.npmmirror.com/sax@1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/sax/-/sax-1.2.4.tgz}
+    name: sax
+    version: 1.2.4
+    dev: false
+
+  registry.npmmirror.com/ts-toolbelt@9.6.0:
+    resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ts-toolbelt/-/ts-toolbelt-9.6.0.tgz}
+    name: ts-toolbelt
+    version: 9.6.0
+    dev: true
+
+  registry.npmmirror.com/types-ramda@0.29.4:
+    resolution: {integrity: sha512-XO/820iRsCDwqLjE8XE+b57cVGPyk1h+U9lBGpDWvbEky+NQChvHVwaKM05WnW1c5z3EVQh8NhXFmh2E/1YazQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/types-ramda/-/types-ramda-0.29.4.tgz}
+    name: types-ramda
+    version: 0.29.4
+    dependencies:
+      ts-toolbelt: registry.npmmirror.com/ts-toolbelt@9.6.0
+    dev: true
+
+  registry.npmmirror.com/xml2js@0.6.2:
+    resolution: {integrity: sha512-T4rieHaC1EXcES0Kxxj4JWgaUQHDk+qwHcYOCFHfiwKz7tOVPLq7Hjq9dM1WCMhylqMEfP7hMcOIChvotiZegA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/xml2js/-/xml2js-0.6.2.tgz}
+    name: xml2js
+    version: 0.6.2
+    engines: {node: '>=4.0.0'}
+    dependencies:
+      sax: registry.npmmirror.com/sax@1.2.4
+      xmlbuilder: registry.npmmirror.com/xmlbuilder@11.0.1
+    dev: false
+
+  registry.npmmirror.com/xmlbuilder@11.0.1:
+    resolution: {integrity: sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/xmlbuilder/-/xmlbuilder-11.0.1.tgz}
+    name: xmlbuilder
+    version: 11.0.1
+    engines: {node: '>=4.0'}
+    dev: false
