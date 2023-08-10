@@ -4,8 +4,7 @@ import { ReportError } from "./emit";
 
 export const getZip = (url: string) => {
   try {
-    const zip =  new AdmZip(url);
-    
+    return new AdmZip(url);
   } catch (e) {
     return ReportError("Invalid/missing file");
   }
@@ -24,14 +23,14 @@ const getZipFile = (zip: AdmZip, name: string) => {
   return zip.readFile(name);
 };
 
-
 // test
 const test = () => {
   const zip = getZip("1.epub");
   if (!zip) return;
   const names = getZipNames(zip);
 
-  if (!names || !names.length) return ReportError("No files in archive");
+  if (!names || !names.length)
+    return ReportError("No files in archive");
 
   // checkMimeType(names);
   // const file = getZipFile(zip, names[0]);

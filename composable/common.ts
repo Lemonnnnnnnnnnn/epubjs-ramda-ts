@@ -17,7 +17,7 @@ export const readFile = (zip: AdmZip, name: string) => {
     return ReportError("Reading archive failed");
   }
 
-  return R.pipe(toUTF8, toLowerCase, trim)(buffer!);
+  return R.pipe(toUTF8, toLowerCase, R.trim)(buffer!);
 };
 
 
@@ -25,6 +25,9 @@ export const getXmlParser = () => {
     return new xml2js.Parser(xml2jsOptions)
 }
 
+export const isArray = (entity : unknown) => {
+    return Array.isArray(entity)
+}
+
 
 const xml2jsOptions = xml2js.defaults['0.1']
-const trim = (str: string) => str.trim();
