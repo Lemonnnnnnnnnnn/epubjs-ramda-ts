@@ -1,38 +1,29 @@
-import AdmZip from "adm-zip";
 import * as R from "ramda";
-import * as xml2js from "xml2js";
-import { getZip } from "./composable/zip";
+import AdmZip from "adm-zip";
+import {
+  getFilesName,
+  checkMimeType,
+  getRootFile,
+} from "./composable";
 
-const getEpub = (url: string) => {
-  getZip(url);
+const TEST_FILE = "1.epub";
+
+const main = async () => {
+  try {
+    console.log("parse epub file ...");
+    const zip = new AdmZip(TEST_FILE);
+    const filesName = getFilesName(zip);
+
+    console.log("check mime type ...");
+    checkMimeType(zip, filesName);
+
+    console.log("get root files ...");
+    await getRootFile(zip, filesName);
+  } catch (e) {
+    console.log("error!!!");
+
+    console.log(e);
+  }
 };
 
-const checkMimeType = () => {};
-
-const getContainerFile = () => {};
-
-const getXml = () => {};
-
-const getRootFile = () => {};
-
-const parseXml = () => {};
-
-const parseRootFile = () => {};
-
-const parseMetaData = () => {};
-
-const parseManifestData = () => {};
-
-const parseTOC = () => {};
-
-const getChapter = () => {};
-
-const getChapterRaw = () => {};
-
-const getImage = () => {};
-
-const test = () => {
-  getEpub("1.epub");
-};
-
-test();
+main();

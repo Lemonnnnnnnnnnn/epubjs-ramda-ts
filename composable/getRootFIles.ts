@@ -1,10 +1,12 @@
 import {
   toLowerCase,
-  readFile,
+  readZipFile,
   getXmlParser,
+  isArray,
 } from "./common";
 import * as R from "ramda";
 import AdmZip from "adm-zip";
+
 /**
  * Looks for a "meta-inf/container.xml" file and searches for a
  * rootfile element with mime type "application/oebps-package+xml"
@@ -52,10 +54,6 @@ const getRootFilePkg = (result: ParserResult) => {
   );
 };
 
-const hasMediaType = (entity: RootFile) => {
-  return R.has("media-type")(entity);
-};
-
 const mediaTypeEqXML = (entity: RootFile) => {
   return R.pipe(
     R.prop("media-type"),
@@ -67,26 +65,35 @@ const hasFullPath = (entity: RootFile) => {
   return R.pipe(R.prop("@"), R.has("full-path"))(entity);
 };
 
-const getFileName = (rootfilePkg: RootFilePkg) => {
-  const target = R.find(
-    R.allPass([hasMediaType, mediaTypeEqXML, hasFullPath]),
-  )(rootfilePkg);
-  if (!target) {
-    throw new Error("No full-path in rootfile");
-  }
-
+const getFullPathFilesName = (rootfilePkg: RootFile) => {
   const fullPath = R.path<string>(["@", "full-path"])(
-    target,
+    rootfilePkg,
   );
-
   if (!fullPath) {
     throw new Error("full-path file is missing");
   }
-
   return R.pipe(toLowerCase, R.trim)(fullPath);
 };
 
-const parseContainerFile = async (
+const getRootFileEntity = (rootfilePkg: RootFilePkg | RootFile) : RootFile => {
+
+  const rootfile = R.ifElse(
+    Array.isArray,
+    R.find(
+      R.allPass([mediaTypeEqXML, hasFullPath]),
+    ),
+    ()=> rootfilePkg
+    // @ts-expect-error
+  )(rootfilePkg)
+
+  if(!rootfile) {
+    throw new Error("No rootfile in container file");
+  }
+
+  return rootfile as RootFile
+}
+
+export const getRootFile = async (
   zip: AdmZip,
   names: string[],
 ) => {
@@ -95,24 +102,27 @@ const parseContainerFile = async (
     throw new Error("No container file in archive");
   }
 
-  const xmlData = readFile(zip, containerFile);
+  const xmlData = readZipFile(zip, containerFile);
 
   const xmlParser = getXmlParser();
 
-  try {
-    const result = await xmlParser.parseStringPromise(
-      xmlData,
-    );
-    if (!hasRootFiles(result)) {
-      throw new Error("No rootfile in container file");
-    }
+  const result = await xmlParser.parseStringPromise(
+    xmlData,
+  );
 
-    const rootFilePkg = getRootFilePkg(result);
-    const fileName = getFileName(rootFilePkg);
-  } catch (e) {
-    throw new Error(
-      "Parsing container XML failed in getRootFiles",
-    );
+  const rootFilePkg = getRootFilePkg(result);
+
+  if (!rootFilePkg) {
+    throw new Error("No rootfile in container file");
   }
-};
 
+
+  const rootFileName = R.pipe(
+    getRootFileEntity,
+    getFullPathFilesName
+  )(rootFilePkg)
+
+  console.log(rootFileName);
+  
+  return rootFileName;
+};

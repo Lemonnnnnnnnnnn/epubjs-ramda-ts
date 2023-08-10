@@ -1,60 +1,41 @@
 import AdmZip from "adm-zip";
-import { ReportError } from "./emit";
 import * as R from "ramda";
-import {
-  toLowerCase,
-  readFile,
-} from "./common";
+import { toLowerCase, readZipFile } from "./common";
+
 /**
  * checks if there's a file called "mimetype" and that contents are "application/epub+zip"
  */
 export const checkMimeType = (
   zip: AdmZip,
-  zipNames: string[],
+  filesName: string[],
 ) => {
-  return R.pipe(
-    getMimetypeFile,
-    doCheck(zip),
-  )(zipNames);
+  return R.pipe(getMimetypeFile, doCheck(zip))(filesName);
 };
 
-const getMimetypeFile = (
-  zipNames: string[],
-) => {
-  const mimeTypeFileName =
-    R.find(eqMimetype)(zipNames);
-  if (!mimeTypeFileName)
-    return ReportError(
-      "No mimetype file in archive",
-    );
+const getMimetypeFile = (filesName: string[]) => {
+  const mimeTypeFileName = R.find(eqMimetype)(filesName);
+  if (!mimeTypeFileName) {
+    throw new Error("No mimetype file in archive");
+  }
   return mimeTypeFileName;
 };
 
 const eqMimetype = (name: string) =>
-  R.pipe(
-    toLowerCase,
-    R.equals("mimetype"),
-  )(name);
+  R.pipe(toLowerCase, R.equals("mimetype"))(name);
 
-  
 // check file mime type
 const doCheck = (zip: AdmZip) => {
   return R.curry(_doCheck)(zip);
 };
 
-const _doCheck = (
-  zip: AdmZip,
-  fileName: string,
-) => {
-  const data = readFile(zip, fileName);
-  const isSupportedType = R.equals(
-    "application/epub+zip",
+const _doCheck = (zip: AdmZip, fileName: string) => {
+  const data = readZipFile(zip, fileName);
+  
+  return R.ifElse(
+    R.equals("application/epub+zip"),
+    () => true,
+    () => {
+      throw new Error("Unsupported mime type");
+    },
   )(data);
-
-  if (!isSupportedType)
-    return ReportError(
-      "Unsupported mime type",
-    );
-
-  return true;
 };

@@ -1,5 +1,4 @@
 import AdmZip from "adm-zip";
-import { ReportError } from "./emit";
 import * as R from "ramda";
 import xml2js from 'xml2js'
 
@@ -9,12 +8,12 @@ export const toLowerCase = (str: string) =>
 export const toUTF8 = (str: Buffer) =>
   str.toString("utf-8");
 
-export const readFile = (zip: AdmZip, name: string) => {
+export const readZipFile = (zip: AdmZip, name: string) => {
   let buffer;
   try {
     buffer = zip.readFile(name);
   } catch (e) {
-    return ReportError("Reading archive failed");
+    throw "Reading archive failed";
   }
 
   return R.pipe(toUTF8, toLowerCase, R.trim)(buffer!);
