@@ -9,7 +9,9 @@ export const checkMimeType = (
   zip: AdmZip,
   filesName: string[],
 ) => {
-  return R.pipe(getMimetypeFile, doCheck(zip))(filesName);
+  const doCheck = R.curry(_doCheck)(zip);
+
+  return R.pipe(getMimetypeFile, doCheck)(filesName);
 };
 
 const getMimetypeFile = (filesName: string[]) => {
@@ -24,13 +26,10 @@ const eqMimetype = (name: string) =>
   R.pipe(toLowerCase, R.equals("mimetype"))(name);
 
 // check file mime type
-const doCheck = (zip: AdmZip) => {
-  return R.curry(_doCheck)(zip);
-};
 
 const _doCheck = (zip: AdmZip, fileName: string) => {
   const data = readZipFile(zip, fileName);
-  
+
   return R.ifElse(
     R.equals("application/epub+zip"),
     () => true,

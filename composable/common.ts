@@ -13,7 +13,7 @@ export const readZipFile = (zip: AdmZip, name: string) => {
   try {
     buffer = zip.readFile(name);
   } catch (e) {
-    throw "Reading archive failed";
+    throw new Error("Reading archive failed");
   }
 
   return R.pipe(toUTF8, toLowerCase, R.trim)(buffer!);
