@@ -1,6 +1,6 @@
 import AdmZip from "adm-zip";
 import * as R from "ramda";
-import { toLowerCase, readZipFile } from "./common";
+import { readZipFile } from "./common";
 
 /**
  * checks if there's a file called "mimetype" and that contents are "application/epub+zip"
@@ -23,7 +23,7 @@ const getMimetypeFile = (filesName: string[]) => {
 };
 
 const eqMimetype = (name: string) =>
-  R.pipe(toLowerCase, R.equals("mimetype"))(name);
+  R.pipe(R.toLower, R.equals("mimetype"))(name);
 
 // check file mime type
 

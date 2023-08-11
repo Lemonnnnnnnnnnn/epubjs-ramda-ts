@@ -14,17 +14,42 @@ export interface GeneratedType {
 
 export interface Metadata {
   "@": GeneratedType2;
-  "dc:language": string;
-  "dc:title": string;
+  "dc:title": DcMetaGeneratedType;
+  "dc:publisher": DcMetaGeneratedType;
+  "dc:language": DcMetaGeneratedType;
+  "dc:date": DcMetaGeneratedType;
+  "dc:subject" : DcMetaGeneratedType;
+  "dc:description" : DcMetaGeneratedType;
+  
   meta: Meum[];
-  "dc:publisher": DcPublisher;
-  "dc:identifier": DcIdentifier[];
-  "dc:contributor": DcContributor;
   "dc:creator": DcCreator;
-  "dc:date": string;
+  "dc:identifier": DcMetaGeneratedType;
 }
 
-export type DcPublisher = string | Publisher | Publisher[]
+export type DcMetaGeneratedType  = string | MetaGeneratedType | MetaGeneratedType[]
+
+export interface MetaGeneratedType {
+  "#": string;
+  "@": GeneratedType;
+}
+
+export interface GeneratedType {
+  "opf:scheme": string;
+  id?: string;
+}
+
+export type DcCreator  = string | Creator | Creator[]
+
+export interface Creator {
+  "#": string;
+  "@": CreatorAt;
+}
+
+export interface CreatorAt {
+  "opf:file-as": string;
+  "opf:role": string;
+}
+
 
 export interface GeneratedType2 {
   "xmlns:calibre": string;
@@ -43,38 +68,8 @@ export interface GeneratedType3 {
   content: string;
 }
 
-export interface Publisher {
-  "#" : string
-}
 
-export interface DcIdentifier {
-  "#": string;
-  "@": GeneratedType4;
-}
 
-export interface GeneratedType4 {
-  "opf:scheme": string;
-  id?: string;
-}
-
-export interface DcContributor {
-  "#": string;
-  "@": GeneratedType5;
-}
-
-export interface GeneratedType5 {
-  "opf:role": string;
-}
-
-export interface DcCreator {
-  "#": string;
-  "@": GeneratedType6;
-}
-
-export interface GeneratedType6 {
-  "opf:file-as": string;
-  "opf:role": string;
-}
 
 export interface Manifest {
   item: Item[];

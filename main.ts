@@ -8,7 +8,6 @@ import {
   parseRootFile,
 } from "./composable";
 import { getXmlParser } from "./composable";
-import fs from "fs";
 
 const TEST_FILE = "1.epub";
 

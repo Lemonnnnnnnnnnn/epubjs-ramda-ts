@@ -5,9 +5,6 @@ import xml2js from 'xml2js'
 const xml2jsOptions = xml2js.defaults['0.1']
 
 
-export const toLowerCase = (str: string) =>
-  str.toLowerCase();
-
 export const toUTF8 = (str: Buffer) =>
   str.toString("utf-8");
 
@@ -19,7 +16,7 @@ export const readZipFile = (zip: AdmZip, name: string) => {
     throw new Error("Reading archive failed");
   }
 
-  return R.pipe(toUTF8, toLowerCase, R.trim)(buffer!);
+  return R.pipe(toUTF8, R.toLower, R.trim)(buffer!);
 };
 
 
@@ -38,6 +35,6 @@ export const hasSymbol = (entity: unknown) => {
   return R.has("#")(entity);
 };
 
-export   const addPlaceholder = (str: string | undefined) => {
-  return R.ifElse(R.isNil, () => "", R.identity)(str);
+export   const addPlaceholder = (str: string | undefined , placeholder: string = "" ) => {
+  return R.ifElse(R.isNil, () => placeholder, R.identity)(str);
 };

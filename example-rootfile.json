@@ -1,0 +1,396 @@
+{
+    "@": {
+        "xmlns": "http://www.idpf.org/2007/opf",
+        "unique-identifier": "uuid_id",
+        "version": "2.0"
+    },
+    "metadata": {
+        "@": {
+            "xmlns:calibre": "http://calibre.kovidgoyal.net/2009/metadata",
+            "xmlns:dc": "http://purl.org/dc/elements/1.1/",
+            "xmlns:dcterms": "http://purl.org/dc/terms/",
+            "xmlns:opf": "http://www.idpf.org/2007/opf",
+            "xmlns:xsi": "http://www.w3.org/2001/xmlschema-instance"
+        },
+        "dc:language": "zh",
+        "dc:title": "我们时代的神经症人格（卡伦·霍妮作品）（与荣格、阿德勒、弗洛姆齐名的心理学大师，新弗洛伊德学派代表人物，唯一开创一个精神分析思想流派的女学者） (卡伦·霍尼作品集)",
+        "meta": [
+            {
+                "@": {
+                    "name": "cover",
+                    "content": "cover"
+                }
+            },
+            {
+                "@": {
+                    "name": "calibre:timestamp",
+                    "content": "2021-01-13t16:33:58.115000+00:00"
+                }
+            },
+            {
+                "@": {
+                    "name": "calibre:title_sort",
+                    "content": "我们时代的神经症人格（卡伦·霍妮作品）（与荣格、阿德勒、弗洛姆齐名的心理学大师，新弗洛伊德学派代表人物，唯一开创一个精神分析思想流派的女学者） (卡伦·霍尼作品集)"
+                }
+            },
+            {
+                "@": {
+                    "content": "horizontal-lr",
+                    "name": "primary-writing-mode"
+                }
+            }
+        ],
+        "dc:publisher": "译林出版社",
+        "dc:identifier": [
+            {
+                "#": "b01h6uy7z0",
+                "@": {
+                    "opf:scheme": "mobi-asin"
+                }
+            },
+            {
+                "#": "4615728e-acd1-4959-bd5c-6ca610298eb1",
+                "@": {
+                    "id": "uuid_id",
+                    "opf:scheme": "uuid"
+                }
+            },
+            {
+                "#": "4615728e-acd1-4959-bd5c-6ca610298eb1",
+                "@": {
+                    "opf:scheme": "calibre"
+                }
+            }
+        ],
+        "dc:contributor": {
+            "#": "calibre (4.20.0) [https://calibre-ebook.com]",
+            "@": {
+                "opf:role": "bkp"
+            }
+        },
+        "dc:creator": {
+            "#": "卡伦·霍妮",
+            "@": {
+                "opf:file-as": "卡伦·霍妮",
+                "opf:role": "aut"
+            }
+        },
+        "dc:date": "2016-05-31t16:00:00+00:00"
+    },
+    "manifest": {
+        "item": [
+            {
+                "@": {
+                    "href": "cover.jpeg",
+                    "id": "cover",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "titlepage.xhtml",
+                    "id": "titlepage",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0000.html",
+                    "id": "id9",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0001.html",
+                    "id": "id10",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0002.html",
+                    "id": "id11",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0003.html",
+                    "id": "id12",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0004.html",
+                    "id": "id13",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0005.html",
+                    "id": "id14",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0006.html",
+                    "id": "id15",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0007.html",
+                    "id": "id16",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0008.html",
+                    "id": "id17",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0009.html",
+                    "id": "id18",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0010.html",
+                    "id": "id19",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0011.html",
+                    "id": "id20",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0012.html",
+                    "id": "id21",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0013.html",
+                    "id": "id22",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0014.html",
+                    "id": "id23",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0015.html",
+                    "id": "id24",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0016.html",
+                    "id": "id25",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0017.html",
+                    "id": "id26",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0018.html",
+                    "id": "id27",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0019.html",
+                    "id": "id28",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "images/00001.jpeg",
+                    "id": "id1",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "page_styles.css",
+                    "id": "page_css",
+                    "media-type": "text/css"
+                }
+            },
+            {
+                "@": {
+                    "href": "stylesheet.css",
+                    "id": "css",
+                    "media-type": "text/css"
+                }
+            },
+            {
+                "@": {
+                    "href": "toc.ncx",
+                    "id": "ncx",
+                    "media-type": "application/x-dtbncx+xml"
+                }
+            }
+        ]
+    },
+    "spine": {
+        "@": {
+            "toc": "ncx"
+        },
+        "itemref": [
+            {
+                "@": {
+                    "idref": "titlepage"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id9"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id10"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id11"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id12"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id13"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id14"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id15"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id16"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id17"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id18"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id19"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id20"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id21"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id22"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id23"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id24"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id25"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id26"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id27"
+                }
+            },
+            {
+                "@": {
+                    "idref": "id28"
+                }
+            }
+        ]
+    },
+    "guide": {
+        "reference": [
+            {
+                "@": {
+                    "href": "titlepage.xhtml",
+                    "title": "cover",
+                    "type": "cover"
+                }
+            },
+            {
+                "@": {
+                    "href": "text/part0001.html#ugi0-06f4e5a0273f41979b26fca74850e0ca",
+                    "title": "目录",
+                    "type": "toc"
+                }
+            }
+        ]
+    }
+}

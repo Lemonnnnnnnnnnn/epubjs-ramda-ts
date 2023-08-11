@@ -1,4 +1,4 @@
-import { toLowerCase, readZipFile } from "./common";
+import { readZipFile } from "./common";
 import * as R from "ramda";
 import AdmZip from "adm-zip";
 import { Parser } from "xml2js";
@@ -62,7 +62,7 @@ const getRootFileName = (rootfilePkg: Entity) => {
   if (!fullPath) {
     throw new Error("full-path file is missing");
   }
-  return R.pipe(toLowerCase, R.trim)(fullPath);
+  return R.pipe(R.toLower, R.trim)(fullPath);
 };
 
 const _getRootFileEntity = async (

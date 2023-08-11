@@ -1,6 +1,5 @@
 import * as R from "ramda";
 import {
-  toLowerCase,
   readZipFile,
   getXmlParser,
 } from "./common";
@@ -30,7 +29,7 @@ const getContainerFile = (names: string[]) => {
 
 const eqContainer = (name: string) => {
   return R.pipe(
-    toLowerCase,
+    R.toLower,
     R.equals("meta-inf/container.xml"),
   )(name);
 };
