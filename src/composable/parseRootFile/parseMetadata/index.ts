@@ -6,7 +6,7 @@ import {
 import * as R from "ramda";
 import { getGeneratedProp } from "./parseGeneratedProp";
 import { getCreatorProp } from "./parseCreator";
-import { addProp as _addProp } from "../../common";
+import { addProp as _addProp } from "@/composable";
 
 const GENERATED_PROPERTYS = [
   "dc:language",

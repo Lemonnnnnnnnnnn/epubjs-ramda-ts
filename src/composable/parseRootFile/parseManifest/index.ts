@@ -1,4 +1,4 @@
-import { addProp as _addProp } from "../../common";
+import { addProp as _addProp } from "@/composable";
 import { Manifest, ManifestItem } from "@/types/rootFile";
 import * as R from "ramda";
 

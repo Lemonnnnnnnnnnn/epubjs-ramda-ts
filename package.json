@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start" : "ts-node ./src/main.ts",
-    "build" : "tsc"
+    "start": "ts-node ./src/main.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,7 @@
     "@types/ramda": "^0.29.3",
     "@types/xml2js": "^0.4.11",
     "prettier": "^3.0.1",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0"
   }
 }

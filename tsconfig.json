@@ -109,4 +109,7 @@
   },
   "include": ["./src/**/*"],
   "exclude": ["./src/types/*"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"],
+  }
 }
