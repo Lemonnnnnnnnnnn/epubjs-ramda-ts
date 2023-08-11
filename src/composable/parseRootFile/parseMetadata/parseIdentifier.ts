@@ -1,27 +1,27 @@
-import { DcMetaGeneratedType } from "../../../type/rootFile";
+import { DcMetaGeneratedType, MetaGeneratedType } from "@/type/rootFile";
 import * as R from "ramda";
 import { addPlaceholder, hasSymbol } from "../../common";
 
-export const getGeneratedProp = (
+export const getIdentifier = (
   entity: DcMetaGeneratedType,
 ) => {
   return R.ifElse(
     Array.isArray,
     R.pipe(
       R.head,
-      parseGeneratedProp,
+      parseIdentifier,
       addPlaceholder,
       R.trim,
     ),
     R.pipe(
-      parseGeneratedProp,
+      parseIdentifier,
       addPlaceholder,
       R.trim,
     ),
   )(entity);
 };
 
-const parseGeneratedProp = (
+const parseIdentifier = (
   property: DcMetaGeneratedType,
 ) => {
   return R.ifElse(
@@ -30,3 +30,14 @@ const parseGeneratedProp = (
     R.identity,
   )(property) as string | undefined;
 };
+
+
+const parseCreatorFileAs = (property: MetaGeneratedType) => {
+    return R.pathOr(
+      undefined,
+      ["@", "opf:file-as"],
+      property,
+    );
+  };
+  
+  

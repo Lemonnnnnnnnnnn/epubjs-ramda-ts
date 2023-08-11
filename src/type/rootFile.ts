@@ -13,17 +13,17 @@ export interface GeneratedType {
 }
 
 export interface Metadata {
-  "@": GeneratedType2;
+  "@": At;
   "dc:title": DcMetaGeneratedType;
   "dc:publisher": DcMetaGeneratedType;
   "dc:language": DcMetaGeneratedType;
   "dc:date": DcMetaGeneratedType;
   "dc:subject" : DcMetaGeneratedType;
   "dc:description" : DcMetaGeneratedType;
+  "dc:identifier": DcMetaGeneratedType;
   
   meta: Meum[];
   "dc:creator": DcCreator;
-  "dc:identifier": DcMetaGeneratedType;
 }
 
 export type DcMetaGeneratedType  = string | MetaGeneratedType | MetaGeneratedType[]
@@ -51,7 +51,7 @@ export interface CreatorAt {
 }
 
 
-export interface GeneratedType2 {
+export interface At {
   "xmlns:calibre": string;
   "xmlns:dc": string;
   "xmlns:dcterms": string;
@@ -60,15 +60,13 @@ export interface GeneratedType2 {
 }
 
 export interface Meum {
-  "@": GeneratedType3;
+  "@": MeumAt;
 }
 
-export interface GeneratedType3 {
+export interface MeumAt {
   name: string;
   content: string;
 }
-
-
 
 
 export interface Manifest {

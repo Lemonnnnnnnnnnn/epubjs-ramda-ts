@@ -5,7 +5,7 @@ import {
   Guide,
   Spine,
   GeneratedType,
-} from "../../type/rootFile";
+} from "@/type/rootFile";
 import { parseMetaData } from "./parseMetadata";
 import * as R from "ramda";
 

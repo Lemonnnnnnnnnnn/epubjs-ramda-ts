@@ -8,11 +8,14 @@ import {
   parseRootFile,
 } from "./composable";
 import { getXmlParser } from "./composable";
+import fs from 'fs'
+import path from 'path'
 
-const TEST_FILE = "1.epub";
+const TEST_FILE = path.join(process.cwd() , './src/public/1.epub');
 
 const main = async () => {
   try {
+    // fs.readFileSync()
     console.log("parse epub file ...");
     const zip = new AdmZip(TEST_FILE);
     const xmlparser = getXmlParser();

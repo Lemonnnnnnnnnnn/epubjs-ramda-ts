@@ -1,4 +1,4 @@
-import { Creator, DcCreator } from "../../../type/rootFile";
+import { Creator, DcCreator } from "@/type/rootFile";
 import * as R from "ramda";
 import { addPlaceholder, hasSymbol } from "../../common";
 

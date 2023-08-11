@@ -2,7 +2,7 @@ import {
   Metadata,
   DcMetaGeneratedType,
   DcCreator,
-} from "../../../type/rootFile";
+} from "@/type/rootFile";
 import * as R from "ramda";
 import { getGeneratedProp } from "./parseGeneratedProp";
 import { getCreatorProp } from "./parseCreator";
@@ -29,7 +29,7 @@ export const parseMetaData = (metaData: Metadata) => {
         addProp,
       )(val as DcMetaGeneratedType);
     } else if (key === "dc:creator") {
-      const addProp = (
+      const addPropBatch = (
         o: ReturnType<typeof getCreatorProp>,
       ) => {
         return R.forEachObjIndexed((val, name) => {
@@ -38,7 +38,7 @@ export const parseMetaData = (metaData: Metadata) => {
         })(o);
       };
 
-      R.pipe(getCreatorProp, addProp)(val as DcCreator);
+      R.pipe(getCreatorProp, addPropBatch)(val as DcCreator);
     } else if (key === "dc:identifier") {
     }
   }, metaData);
