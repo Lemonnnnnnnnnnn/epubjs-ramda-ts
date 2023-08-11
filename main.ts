@@ -5,8 +5,10 @@ import {
   checkMimeType,
   getRootFile as _getRootFile,
   getContainer as _getContainer,
+  parseRootFile,
 } from "./composable";
 import { getXmlParser } from "./composable";
+import fs from "fs";
 
 const TEST_FILE = "1.epub";
 
@@ -30,7 +32,10 @@ const main = async () => {
       xmlparser,
     ]);
     const rootFile = await getRootFile(container);
-    console.log(rootFile);
+
+    console.log("parse root file ...");
+    parseRootFile(rootFile)
+    
 
   } catch (e) {
     console.log("error!!!");

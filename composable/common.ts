@@ -2,6 +2,9 @@ import AdmZip from "adm-zip";
 import * as R from "ramda";
 import xml2js from 'xml2js'
 
+const xml2jsOptions = xml2js.defaults['0.1']
+
+
 export const toLowerCase = (str: string) =>
   str.toLowerCase();
 
@@ -29,4 +32,12 @@ export const isArray = (entity : unknown) => {
 }
 
 
-const xml2jsOptions = xml2js.defaults['0.1']
+
+
+export const hasSymbol = (entity: unknown) => {
+  return R.has("#")(entity);
+};
+
+export   const addPlaceholder = (str: string | undefined) => {
+  return R.ifElse(R.isNil, () => "", R.identity)(str);
+};
