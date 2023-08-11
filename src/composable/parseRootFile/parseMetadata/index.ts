@@ -2,7 +2,7 @@ import {
   Metadata,
   DcMetaGeneratedType,
   DcCreator,
-} from "@/type/rootFile";
+} from "@/types/rootFile";
 import * as R from "ramda";
 import { getGeneratedProp } from "./parseGeneratedProp";
 import { getCreatorProp } from "./parseCreator";

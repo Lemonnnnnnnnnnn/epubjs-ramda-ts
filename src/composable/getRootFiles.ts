@@ -6,7 +6,7 @@ import {
   ParserResult,
   Entity,
   EntityPkg,
-} from "@/type/container";
+} from "@/types/container";
 
 export const getRootFile = async (
   zip: AdmZip,

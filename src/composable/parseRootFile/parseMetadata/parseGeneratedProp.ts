@@ -1,4 +1,4 @@
-import { DcMetaGeneratedType } from "@/type/rootFile";
+import { DcMetaGeneratedType } from "@/types/rootFile";
 import * as R from "ramda";
 import { addPlaceholder, hasSymbol } from "../../common";
 
