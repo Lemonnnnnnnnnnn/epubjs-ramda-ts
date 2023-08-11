@@ -6,6 +6,7 @@ import {
 import * as R from "ramda";
 import { getGeneratedProp } from "./parseGeneratedProp";
 import { getCreatorProp } from "./parseCreator";
+import { addProp as _addProp } from "../../common";
 
 const GENERATED_PROPERTYS = [
   "dc:language",
@@ -40,12 +41,6 @@ export const parseMetaData = (metaData: Metadata) => {
 const getPropertyName = (rawName: string) => {
   return R.split(":", rawName)[1];
 };
-
-const _addProp = (
-  o: Record<keyof any, any>,
-  name: string,
-  data: any,
-) => Object.assign(o, { [name]: data });
 
 const _addPropBatch = (
   originObject : Record<string , any>,

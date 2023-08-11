@@ -18,15 +18,18 @@ export interface Metadata {
   "dc:publisher": DcMetaGeneratedType;
   "dc:language": DcMetaGeneratedType;
   "dc:date": DcMetaGeneratedType;
-  "dc:subject" : DcMetaGeneratedType;
-  "dc:description" : DcMetaGeneratedType;
+  "dc:subject": DcMetaGeneratedType;
+  "dc:description": DcMetaGeneratedType;
   "dc:identifier": DcMetaGeneratedType;
-  
+
   meta: Meum[];
   "dc:creator": DcCreator;
 }
 
-export type DcMetaGeneratedType  = string | MetaGeneratedType | MetaGeneratedType[]
+export type DcMetaGeneratedType =
+  | string
+  | MetaGeneratedType
+  | MetaGeneratedType[];
 
 export interface MetaGeneratedType {
   "#": string;
@@ -38,7 +41,7 @@ export interface GeneratedType {
   id?: string;
 }
 
-export type DcCreator  = string | Creator | Creator[]
+export type DcCreator = string | Creator | Creator[];
 
 export interface Creator {
   "#": string;
@@ -49,7 +52,6 @@ export interface CreatorAt {
   "opf:file-as": string;
   "opf:role": string;
 }
-
 
 export interface At {
   "xmlns:calibre": string;
@@ -68,20 +70,18 @@ export interface MeumAt {
   content: string;
 }
 
-
 export interface Manifest {
-  item: Item[];
+  item?: ManifestItem[];
 }
 
-export interface Item {
-  "@": GeneratedType7;
+export interface ManifestItem {
+  "@": {
+    href: string;
+    id: string;
+    "media-type": string;
+  };
 }
 
-export interface GeneratedType7 {
-  href: string;
-  id: string;
-  "media-type": string;
-}
 
 export interface Spine {
   "@": GeneratedType8;

@@ -18,7 +18,7 @@ const main = async () => {
   try {
     // fs.readFileSync()
     console.log("parse epub file ...");
-    const zip = new AdmZip(TEST_FILE2);
+    const zip = new AdmZip(TEST_FILE);
     const xmlparser = getXmlParser();
     const filesName = getFilesName(zip);
 
@@ -34,10 +34,19 @@ const main = async () => {
       zip,
       xmlparser,
     ]);
-    const rootFile = await getRootFile(container);
+    const { rootFileData, rootFileName } =
+      await getRootFile(container);
 
     console.log("parse root file ...");
-    parseRootFile(rootFile)
+    // const basePath = path.resolve(
+    //   TEST_FILE,
+    //   rootFileName,
+    //   "..",
+    // );
+    // console.log(basePath);
+
+    const data = parseRootFile(rootFileData);
+    console.log(data);
     
 
   } catch (e) {

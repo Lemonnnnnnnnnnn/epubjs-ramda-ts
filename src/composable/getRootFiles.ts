@@ -29,7 +29,11 @@ export const getRootFile = async (
     xmlParser,
   ]);
 
-  return await getRootFileEntity(rootFileName);
+  const rootFileData =  await getRootFileEntity(rootFileName);
+  return {
+    rootFileData , 
+    rootFileName
+  }
 };
 
 const getRootFilePkg = (result: ParserResult) => {
@@ -44,7 +48,7 @@ const getRootFileMsg = (
   const rootfile = R.ifElse(
     Array.isArray,
     R.find(R.allPass([mediaTypeEqXML, hasFullPath])),
-    () => rootfilePkg,
+    R.identity,
     // @ts-expect-error
   )(rootfilePkg);
 

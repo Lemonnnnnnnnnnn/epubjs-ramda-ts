@@ -8,13 +8,29 @@ import {
 } from "@/types/rootFile";
 import { parseMetaData } from "./parseMetadata";
 import * as R from "ramda";
+import { addProp } from "../common";
+import { parseManifest } from "./parseManifest";
+import path from "path";
 
-export const parseRootFile = (rootFile: RootFile) => {
+export const parseRootFile = (
+  rootFileData: RootFile,
+) => {
+  const res = {};
+
   R.forEachObjIndexed((val, key) => {
     switch (key) {
       case "metadata":
         const metadata = parseMetaData(val as Metadata);
-        console.log(metadata);
+        addProp(res, "metadata", metadata);
+        break;
+      case "manifest":
+        const manifest = parseManifest(
+          val as Manifest,
+        );
+        addProp(res, "manifest", manifest);
+        break;
     }
-  }, rootFile);
+  }, rootFileData);
+
+  return res;
 };
