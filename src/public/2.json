@@ -1,0 +1,321 @@
+{
+    "@": {
+        "xmlns:opf": "http://www.idpf.org/2007/opf",
+        "xmlns:dcterms": "http://purl.org/dc/terms/",
+        "xmlns:dc": "http://purl.org/dc/elements/1.1/",
+        "xmlns:xsi": "http://www.w3.org/2001/xmlschema-instance",
+        "xmlns": "http://www.idpf.org/2007/opf",
+        "version": "2.0",
+        "unique-identifier": "id"
+    },
+    "metadata": {
+        "dc:rights": "public domain in the usa.",
+        "dc:identifier": {
+            "#": "http://www.gutenberg.org/ebooks/19033",
+            "@": {
+                "id": "id",
+                "opf:scheme": "uri"
+            }
+        },
+        "dc:contributor": {
+            "#": "gordon robinson",
+            "@": {
+                "opf:file-as": "robinson, gordon",
+                "opf:role": "ill"
+            }
+        },
+        "dc:creator": {
+            "#": "lewis carroll",
+            "@": {
+                "opf:file-as": "carroll, lewis"
+            }
+        },
+        "dc:title": "alice's adventures in wonderland",
+        "dc:language": {
+            "#": "en",
+            "@": {
+                "xsi:type": "dcterms:rfc4646"
+            }
+        },
+        "dc:subject": [
+            "fantasy",
+            "fantasy fiction, english"
+        ],
+        "dc:date": [
+            {
+                "#": "2006-08-12",
+                "@": {
+                    "opf:event": "publication"
+                }
+            },
+            {
+                "#": "2010-02-16t12:34:12.754941+00:00",
+                "@": {
+                    "opf:event": "conversion"
+                }
+            }
+        ],
+        "dc:source": "http://www.gutenberg.org/files/19033/19033-h/19033-h.htm",
+        "meta": {
+            "@": {
+                "content": "item32",
+                "name": "cover"
+            }
+        }
+    },
+    "manifest": {
+        "item": [
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@cover_th.jpg",
+                    "id": "item1",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@title.jpg",
+                    "id": "item2",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@plate01_th.jpg",
+                    "id": "item3",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i001_th.jpg",
+                    "id": "item4",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i002_th.jpg",
+                    "id": "item5",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i003_th.jpg",
+                    "id": "item6",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i004_th.jpg",
+                    "id": "item7",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i005_th.jpg",
+                    "id": "item8",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i006_th.jpg",
+                    "id": "item9",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@plate02_th.jpg",
+                    "id": "item10",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i007_th.jpg",
+                    "id": "item11",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i008_th.jpg",
+                    "id": "item12",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i009_th.jpg",
+                    "id": "item13",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i010_th.jpg",
+                    "id": "item14",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i011_th.jpg",
+                    "id": "item15",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i012_th.jpg",
+                    "id": "item16",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@plate03_th.jpg",
+                    "id": "item17",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i013_th.jpg",
+                    "id": "item18",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i014_th.jpg",
+                    "id": "item19",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i015_th.jpg",
+                    "id": "item20",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i016_th.jpg",
+                    "id": "item21",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i017_th.jpg",
+                    "id": "item22",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@plate04_th.jpg",
+                    "id": "item23",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i018_th.jpg",
+                    "id": "item24",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i019_th.jpg",
+                    "id": "item25",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i020_th.jpg",
+                    "id": "item26",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i021_th.jpg",
+                    "id": "item27",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@images@i022_th.jpg",
+                    "id": "item28",
+                    "media-type": "image/jpeg"
+                }
+            },
+            {
+                "@": {
+                    "href": "pgepub.css",
+                    "id": "item29",
+                    "media-type": "text/css"
+                }
+            },
+            {
+                "@": {
+                    "href": "0.css",
+                    "id": "item30",
+                    "media-type": "text/css"
+                }
+            },
+            {
+                "@": {
+                    "href": "1.css",
+                    "id": "item31",
+                    "media-type": "text/css"
+                }
+            },
+            {
+                "@": {
+                    "href": "www.gutenberg.org@files@19033@19033-h@19033-h-0.htm",
+                    "id": "item32",
+                    "media-type": "application/xhtml+xml"
+                }
+            },
+            {
+                "@": {
+                    "href": "toc.ncx",
+                    "id": "ncx",
+                    "media-type": "application/x-dtbncx+xml"
+                }
+            }
+        ]
+    },
+    "spine": {
+        "@": {
+            "toc": "ncx"
+        },
+        "itemref": {
+            "@": {
+                "idref": "item32",
+                "linear": "yes"
+            }
+        }
+    },
+    "guide": {
+        "reference": {
+            "@": {
+                "href": "www.gutenberg.org@files@19033@19033-h@images@cover_th.jpg",
+                "type": "cover",
+                "title": "cover image"
+            }
+        }
+    }
+}

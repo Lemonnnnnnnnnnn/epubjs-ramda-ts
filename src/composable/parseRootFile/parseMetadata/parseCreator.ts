@@ -3,6 +3,7 @@ import * as R from "ramda";
 import { addPlaceholder, hasSymbol } from "../../common";
 
 export const getCreatorProp = (entity: DcCreator) => {
+
   const creator = R.ifElse(
     Array.isArray,
     R.pipe(

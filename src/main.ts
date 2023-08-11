@@ -12,12 +12,13 @@ import fs from 'fs'
 import path from 'path'
 
 const TEST_FILE = path.join(process.cwd() , './src/public/1.epub');
+const TEST_FILE2 = path.join(process.cwd() , './src/public/2.epub');
 
 const main = async () => {
   try {
     // fs.readFileSync()
     console.log("parse epub file ...");
-    const zip = new AdmZip(TEST_FILE);
+    const zip = new AdmZip(TEST_FILE2);
     const xmlparser = getXmlParser();
     const filesName = getFilesName(zip);
 

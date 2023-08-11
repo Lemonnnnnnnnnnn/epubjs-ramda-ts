@@ -18,6 +18,7 @@ const GENERATED_PROPERTYS = [
 
 export const parseMetaData = (metaData: Metadata) => {
   const res = {};
+  const addPropBatch = R.partial(_addPropBatch, [res]);
 
   R.forEachObjIndexed((val, key) => {
     if (GENERATED_PROPERTYS.includes(key)) {
@@ -29,18 +30,8 @@ export const parseMetaData = (metaData: Metadata) => {
         addProp,
       )(val as DcMetaGeneratedType);
     } else if (key === "dc:creator") {
-      const addPropBatch = (
-        o: ReturnType<typeof getCreatorProp>,
-      ) => {
-        return R.forEachObjIndexed((val, name) => {
-          const addProp = R.partial(_addProp, [res, name]);
-          addProp(val);
-        })(o);
-      };
-
       R.pipe(getCreatorProp, addPropBatch)(val as DcCreator);
-    } else if (key === "dc:identifier") {
-    }
+    } 
   }, metaData);
 
   return res;
@@ -55,3 +46,13 @@ const _addProp = (
   name: string,
   data: any,
 ) => Object.assign(o, { [name]: data });
+
+const _addPropBatch = (
+  originObject : Record<string , any>,
+  newProp: Record<string , any>,
+) => {
+  return R.forEachObjIndexed((val, name) => {
+    const addProp = R.partial(_addProp, [originObject, name]);
+    addProp(val);
+  })(newProp);
+};
