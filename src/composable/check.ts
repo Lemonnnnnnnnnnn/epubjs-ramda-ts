@@ -5,13 +5,12 @@ import { readZipFile } from "./common";
 /**
  * checks if there's a file called "mimetype" and that contents are "application/epub+zip"
  */
-export const checkMimeType = (
+export const checkMimeType = async (
   zip: AdmZip,
   filesName: string[],
 ) => {
-  const doCheck = R.curry(_doCheck)(zip);
-
-  return R.pipe(getMimetypeFile, doCheck)(filesName);
+  const mimetype = getMimetypeFile(filesName);
+  return await doCheck(zip, mimetype);
 };
 
 const getMimetypeFile = (filesName: string[]) => {
@@ -27,12 +26,12 @@ const eqMimetype = (name: string) =>
 
 // check file mime type
 
-const _doCheck = (zip: AdmZip, fileName: string) => {
-  const data = readZipFile(zip, fileName);
+const doCheck = async (zip: AdmZip, fileName: string) => {
+  const data = await readZipFile(zip, fileName);
 
   return R.ifElse(
     R.equals("application/epub+zip"),
-    () => true,
+    R.T,
     () => {
       throw new Error("Unsupported mime type");
     },

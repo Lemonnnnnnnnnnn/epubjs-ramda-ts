@@ -6,7 +6,7 @@ import * as R from "ramda";
 import { readZipFile } from ".";
 import AdmZip from "adm-zip";
 
-export const getTOC = (
+export const getTOC = async (
   zip: AdmZip,
   manifest?: ParsedManifest,
   spine?: parsedSpine,
@@ -19,7 +19,7 @@ export const getTOC = (
   if (!tocEntity) throw new Error("TOC not found");
 
   const path = tocEntity[spine.toc].href;
-  const raw = readZipFile(zip, path);
+  const raw = await readZipFile(zip, path);
 
   return parseBody(raw);
 };

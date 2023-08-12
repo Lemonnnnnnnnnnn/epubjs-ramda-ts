@@ -16,7 +16,7 @@ export const getContainer = async (
 
   console.log("parsing container xml file ...");
 
-  const containerData = readZipFile(zip, containerFile);
+  const containerData = await readZipFile(zip, containerFile);
 
   const xmlParser = getXmlParser();
 

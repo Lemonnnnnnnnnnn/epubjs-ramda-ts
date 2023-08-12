@@ -74,7 +74,7 @@ const _getRootFileEntity = async (
   xmlParser: Parser,
   rootFileName: string,
 ) => {
-  const data = readZipFile(zip, rootFileName);
+  const data = await readZipFile(zip, rootFileName);
   return await xmlParser.parseStringPromise(data);
 };
 

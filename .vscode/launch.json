@@ -15,7 +15,6 @@
                 "${relativeFile}"
             ],
             "cwd": "${workspaceRoot}",
-            "protocol": "inspector",
             "program": "${workspaceRoot}/node_modules/ts-node/dist/bin.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"

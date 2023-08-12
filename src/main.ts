@@ -23,8 +23,8 @@ const epub = async (path: string) => {
   const getImage = R.partial(_getImage, [zip, manifest]);
   const getImages = () => R.curry(_getImages)(manifest);
   const getChapter = R.partialRight(_getChapter, [
-    manifest,
     zip,
+    manifest,
   ]);
   const getChapters = () => R.curry(_getChapters)(manifest);
   const getTOC = () =>
@@ -46,7 +46,7 @@ const prepare = async (zip: AdmZip) => {
   const xmlparser = getXmlParser();
   const filesName = getFilesName(zip);
   console.log("check mime type ...");
-  checkMimeType(zip, filesName);
+  await checkMimeType(zip, filesName);
 
   console.log("get container xml file ...");
   const container = await getContainer(zip, filesName);

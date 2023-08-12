@@ -3,7 +3,7 @@ import {
   ManifestItem,
 } from "@/types/rootFile";
 import * as R from "ramda";
-import { readZipFileRaw as _readZipFileRaw } from "./common";
+import { readZipFileRaw } from "./common";
 import AdmZip from "adm-zip";
 
 type ParsedManifestItem = ManifestItem["@"];
@@ -19,20 +19,15 @@ const mediaTypeEqImage = (
   return R.test(/.*image*./, manifestItem["media-type"]);
 };
 
-export const getImage = (
+export const getImage = async (
   zip: AdmZip,
   manifest: ParsedManifest,
   id: string,
 ) => {
-  const addonZip = R.partial(_readZipFileRaw, [zip]);
-  const readZipFileRaw = (item: ParsedManifestItem) =>
-    addonZip(item.href);
+  if (!manifest[id]) return undefined;
 
-  return R.ifElse(
-    R.has(id),
-    R.pipe(R.prop<ParsedManifestItem>(id), readZipFileRaw),
-    R.always(undefined),
-  )(manifest);
+  const item = manifest[id];
+  return await readZipFileRaw(zip, item.href);
 };
 
 export const getCover = (

@@ -4,14 +4,11 @@ import {
 } from "@/types/rootFile";
 import AdmZip from "adm-zip";
 import * as R from "ramda";
-import {
-  readZipFileRaw as _readZipFileRaw,
-  readZipFile as _readZipFile,
-} from "../common";
+import { readZipFile } from "../common";
 
 type ParsedManifestItem = ManifestItem["@"];
 
-export const getChapter = (
+export const getChapter = async (
   id: string,
   zip: AdmZip,
   manifest?: ParsedManifest,
@@ -19,17 +16,11 @@ export const getChapter = (
   if (!manifest) return undefined;
   const chapters = getChapters(manifest);
 
-  const addonZip = R.partial(_readZipFile, [zip]);
-  const readZipFileRaw = (item: ParsedManifestItem) =>
-    addonZip(item.href);
-
-  const getBody = (chapters : ParsedManifest) => {
-    return R.pipe(
-        R.prop<ParsedManifestItem>(id),
-        readZipFileRaw,
-        parseBody
-    )(chapters)
-  }
+  const getBody = async (chapters: ParsedManifest) => {
+    const item = chapters[id];
+    const rawData = await readZipFile(zip, item.href);
+    return parseBody(rawData);
+  };
 
   return R.ifElse(
     R.has(id),

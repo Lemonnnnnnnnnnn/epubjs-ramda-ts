@@ -7,37 +7,48 @@ const xml2jsOptions = xml2js.defaults["0.1"];
 export const toUTF8 = (str: Buffer) =>
   str.toString("utf-8");
 
-export const readZipFile = (zip: AdmZip, name?: string) => {
+export const readZipFile = async (zip: AdmZip, name?: string) => {
   if (!name) throw new Error("read file need file name");
-
-  let buffer;
   try {
-    buffer = zip.readFile(name);
+    const buffer = await zipReadFile(zip ,name);
     return R.pipe(
-      zip.readFile,
       R.defaultTo(Buffer.from("")),
       toUTF8,
       R.toLower,
       R.trim,
-    )(name);
+    )(buffer);
   } catch (e) {
+    console.log({e});
     throw new Error("Reading archive failed");
   }
-
 };
 
-export const readZipFileRaw = (
+export const readZipFileRaw = async (
   zip: AdmZip,
   name?: string,
 ) => {
   if (!name) throw new Error("read file need file name");
 
   try {
-    return zip.readFile(name);
+    return await zipReadFile(zip ,name);
   } catch (e) {
+    
     throw new Error("Reading archive failed");
   }
 };
+
+const zipReadFile = (zip : AdmZip , name: string) => {
+  return new Promise((resolve ,reject) => {
+    zip.readFileAsync(name , (data , err) => {
+      if(err){
+        reject(err)
+      }else{
+        resolve(data)
+      }
+    })
+  })
+
+}
 
 export const getXmlParser = () => {
   return new xml2js.Parser(xml2jsOptions);
