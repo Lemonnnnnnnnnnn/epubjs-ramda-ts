@@ -6,13 +6,22 @@ import {
   getRootFile as _getRootFile,
   getContainer as _getContainer,
   parseRootFile,
+  readZipFile,
+  readZipFileRaw,
 } from "./composable";
 import { getXmlParser } from "./composable";
-import fs from 'fs'
-import path from 'path'
+import fs from "fs";
+import path from "path";
+import { getImages } from "./composable/getImages";
 
-const TEST_FILE = path.join(process.cwd() , './src/public/1.epub');
-const TEST_FILE2 = path.join(process.cwd() , './src/public/2.epub');
+const TEST_FILE = path.join(
+  process.cwd(),
+  "./src/public/1.epub",
+);
+const TEST_FILE2 = path.join(
+  process.cwd(),
+  "./src/public/2.epub",
+);
 
 const main = async () => {
   try {
@@ -34,21 +43,18 @@ const main = async () => {
       zip,
       xmlparser,
     ]);
-    const { rootFileData, rootFileName } =
-      await getRootFile(container);
+    const { rootFileData } = await getRootFile(container);
 
     console.log("parse root file ...");
-    // const basePath = path.resolve(
-    //   TEST_FILE,
-    //   rootFileName,
-    //   "..",
-    // );
-    // console.log(basePath);
+    const { manifest, metadata } =
+      parseRootFile(rootFileData);
 
-    const data = parseRootFile(rootFileData);
-    console.log(data);
-    
+    // const images = getImages(manifest);
 
+    // const image = readZipFileRaw(zip, images["cover"].href);
+    // if (image) {
+    //   fs.writeFileSync("cover.jpeg", image);
+    // }
   } catch (e) {
     console.log("error!!!");
 

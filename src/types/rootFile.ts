@@ -20,7 +20,7 @@ export interface Metadata {
   "dc:date": DcMetaGeneratedType;
   "dc:subject": DcMetaGeneratedType;
   "dc:description": DcMetaGeneratedType;
-  "dc:identifier": DcMetaGeneratedType;
+  // "dc:identifier": DcMetaGeneratedType;
 
   meta: Meum[];
   "dc:creator": DcCreator;
@@ -80,6 +80,27 @@ export interface ManifestItem {
     id: string;
     "media-type": string;
   };
+}
+
+export type ParsedManifest = Record<
+  string,
+  ManifestItem["@"]
+>;
+export type ParsedMetadata = Record<
+  | "language"
+  | "title"
+  | "publisher"
+  | "creator"
+  | "creatorFileAs"
+  | "date"
+  | "subject"
+  | "description",
+  string
+>;
+
+export interface ParsedRootFile {
+  metadata?: ParsedMetadata;
+  manifest?: ParsedManifest;
 }
 
 

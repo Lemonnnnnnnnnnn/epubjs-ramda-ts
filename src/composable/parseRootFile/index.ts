@@ -2,20 +2,17 @@ import {
   RootFile,
   Metadata,
   Manifest,
-  Guide,
-  Spine,
-  GeneratedType,
+  ParsedRootFile
 } from "@/types/rootFile";
 import { parseMetaData } from "./parseMetadata";
 import * as R from "ramda";
 import { addProp } from "../common";
 import { parseManifest } from "./parseManifest";
-import path from "path";
 
 export const parseRootFile = (
   rootFileData: RootFile,
 ) => {
-  const res = {};
+  const res : ParsedRootFile = {};
 
   R.forEachObjIndexed((val, key) => {
     switch (key) {

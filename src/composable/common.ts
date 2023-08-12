@@ -7,7 +7,9 @@ const xml2jsOptions = xml2js.defaults["0.1"];
 export const toUTF8 = (str: Buffer) =>
   str.toString("utf-8");
 
-export const readZipFile = (zip: AdmZip, name: string) => {
+export const readZipFile = (zip: AdmZip, name?: string) => {
+  if(!name) throw new Error("read file need file name");
+  
   let buffer;
   try {
     buffer = zip.readFile(name);
@@ -16,6 +18,16 @@ export const readZipFile = (zip: AdmZip, name: string) => {
   }
 
   return R.pipe(toUTF8, R.toLower, R.trim)(buffer!);
+};
+
+export const readZipFileRaw = (zip: AdmZip, name?: string) => {
+  if(!name) throw new Error("read file need file name");
+  
+  try {
+    return zip.readFile(name);
+  } catch (e) {
+    throw new Error("Reading archive failed");
+  }
 };
 
 export const getXmlParser = () => {
