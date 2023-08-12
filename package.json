@@ -1,5 +1,5 @@
 {
-  "name": "@lyc/epub-parser",
+  "name": "@lemon/epub-parser",
   "version": "0.0.1",
   "description": "javascript/typescript lib for parsing epub file",
   "main": "/lib/main.js",
@@ -9,7 +9,7 @@
     "start": "ts-node ./src/main.ts",
     "test" : "ts-node ./src/test.ts",
     "build": "tsc",
-    "push" : "tsc && npm publish"
+    "push" : "tsc && npm publish --access public"
   },
   "keywords": ["epub" , "typescript"],
   "author": "Lyc",

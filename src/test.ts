@@ -15,7 +15,6 @@ const test = async () => {
     const book = await epub(TEST_FILE);
     const toc = book.getTOC()
     console.log(toc);
-    
 }
 
 test()
