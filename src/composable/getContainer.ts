@@ -9,6 +9,8 @@ export const getContainer = async (
   zip: AdmZip,
   names: string[],
 ) => {
+  console.log({names});
+  
   const containerFile = getContainerFile(names);
   if (!containerFile) {
     throw new Error("No container file in archive");

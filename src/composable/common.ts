@@ -14,7 +14,6 @@ export const readZipFile = async (zip: AdmZip, name?: string) => {
     return R.pipe(
       R.defaultTo(Buffer.from("")),
       toUTF8,
-      R.toLower,
       R.trim,
     )(buffer);
   } catch (e) {

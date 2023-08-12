@@ -24,6 +24,7 @@ export const getRootFile = async (
     getRootFileName,
   )(rootFilePkg);
 
+
   const getRootFileEntity = R.partial(_getRootFileEntity, [
     zip,
     xmlParser,
@@ -52,6 +53,9 @@ const getRootFileMsg = (
     // @ts-expect-error
   )(rootfilePkg);
 
+  console.log({rootfile});
+  
+
   if (!rootfile) {
     throw new Error("No rootfile in container file");
   }
@@ -66,7 +70,8 @@ const getRootFileName = (rootfilePkg: Entity) => {
   if (!fullPath) {
     throw new Error("full-path file is missing");
   }
-  return R.pipe(R.toLower, R.trim)(fullPath);
+
+  return R.trim(fullPath);
 };
 
 const _getRootFileEntity = async (
