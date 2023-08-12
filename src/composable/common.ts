@@ -17,7 +17,6 @@ export const readZipFile = async (zip: AdmZip, name?: string) => {
       R.trim,
     )(buffer);
   } catch (e) {
-    console.log({e});
     throw new Error("Reading archive failed");
   }
 };

@@ -53,9 +53,6 @@ const getRootFileMsg = (
     // @ts-expect-error
   )(rootfilePkg);
 
-  console.log({rootfile});
-  
-
   if (!rootfile) {
     throw new Error("No rootfile in container file");
   }
