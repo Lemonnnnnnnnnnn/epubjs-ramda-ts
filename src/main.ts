@@ -3,63 +3,64 @@ import AdmZip from "adm-zip";
 import {
   getFilesName,
   checkMimeType,
-  getRootFile as _getRootFile,
-  getContainer as _getContainer,
+  getRootFile,
+  getContainer,
   parseRootFile,
-  readZipFile,
-  readZipFileRaw,
+  getImage as _getImage,
+  getImages as _getImages,
+  getChapter as _getChapter,
+  getChapters as _getChapters,
+  getCover as _getCover,
+  getTOC as _getTOC,
+  getXmlParser,
 } from "./composable";
-import { getXmlParser } from "./composable";
-import fs from "fs";
-import path from "path";
-import { getImages } from "./composable/getImages";
 
-const TEST_FILE = path.join(
-  process.cwd(),
-  "./src/public/1.epub",
-);
-const TEST_FILE2 = path.join(
-  process.cwd(),
-  "./src/public/2.epub",
-);
+const epub = async (path: string) => {
+  const zip = new AdmZip(path);
+  const { spine, metadata, manifest } = await prepare(zip);
 
-const main = async () => {
-  try {
-    // fs.readFileSync()
-    console.log("parse epub file ...");
-    const zip = new AdmZip(TEST_FILE);
-    const xmlparser = getXmlParser();
-    const filesName = getFilesName(zip);
+  const getCover = R.partial(_getCover, [zip, manifest]);
+  const getImage = R.partial(_getImage, [zip, manifest]);
+  const getImages = () => R.curry(_getImages)(manifest);
+  const getChapter = R.partialRight(_getChapter, [
+    manifest,
+    zip,
+  ]);
+  const getChapters = () => R.curry(_getChapters)(manifest);
+  const getTOC = () =>
+    R.curry(_getTOC)(zip, manifest, spine);
+  const getMetadata = R.always(metadata);
 
-    console.log("check mime type ...");
-    checkMimeType(zip, filesName);
-
-    console.log("get container xml file ...");
-    const getContainer = R.curry(_getContainer)(zip);
-    const container = await getContainer(filesName);
-
-    console.log("get root files ...");
-    const getRootFile = R.partial(_getRootFile, [
-      zip,
-      xmlparser,
-    ]);
-    const { rootFileData } = await getRootFile(container);
-
-    console.log("parse root file ...");
-    const { manifest, metadata } =
-      parseRootFile(rootFileData);
-
-    // const images = getImages(manifest);
-
-    // const image = readZipFileRaw(zip, images["cover"].href);
-    // if (image) {
-    //   fs.writeFileSync("cover.jpeg", image);
-    // }
-  } catch (e) {
-    console.log("error!!!");
-
-    console.log(e);
-  }
+  return {
+    getCover,
+    getImage,
+    getImages,
+    getChapter,
+    getChapters,
+    getTOC,
+    getMetadata,
+  };
 };
 
-main();
+const prepare = async (zip: AdmZip) => {
+  const xmlparser = getXmlParser();
+  const filesName = getFilesName(zip);
+  console.log("check mime type ...");
+  checkMimeType(zip, filesName);
+
+  console.log("get container xml file ...");
+  const container = await getContainer(zip, filesName);
+
+  console.log("get root files ...");
+  const { rootFileData } = await getRootFile(
+    zip,
+    xmlparser,
+    container,
+  );
+
+  console.log("parse root file ...");
+  return parseRootFile(rootFileData);
+};
+
+export default epub;
+export { epub };

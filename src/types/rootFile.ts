@@ -98,9 +98,15 @@ export type ParsedMetadata = Record<
   string
 >;
 
+export type parsedSpine = {
+  toc ?: string
+  content : string[]
+}
+
 export interface ParsedRootFile {
   metadata?: ParsedMetadata;
   manifest?: ParsedManifest;
+  spine?: parsedSpine;
 }
 
 

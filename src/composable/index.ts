@@ -8,4 +8,10 @@ export { getFilesName } from "./parseZip";
 
 export { parseRootFile } from "./parseRootFile";
 
+export { getTOC } from "./getTOC";
+
+export { getChapter, getChapters } from "./getChapter";
+
+export * from "./getImages";
+
 export * from "./common";

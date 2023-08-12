@@ -2,12 +2,14 @@ import {
   RootFile,
   Metadata,
   Manifest,
-  ParsedRootFile
+  ParsedRootFile,
+  Spine
 } from "@/types/rootFile";
 import { parseMetaData } from "./parseMetadata";
 import * as R from "ramda";
 import { addProp } from "../common";
 import { parseManifest } from "./parseManifest";
+import { parseSpine } from "./parseSpine";
 
 export const parseRootFile = (
   rootFileData: RootFile,
@@ -26,6 +28,10 @@ export const parseRootFile = (
         );
         addProp(res, "manifest", manifest);
         break;
+      case "spine" : 
+          const spine = parseSpine(val as Spine);
+          addProp(res , "spine" , spine) 
+          break
     }
   }, rootFileData);
 

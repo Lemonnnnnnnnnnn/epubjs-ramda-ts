@@ -8,21 +8,30 @@ export const toUTF8 = (str: Buffer) =>
   str.toString("utf-8");
 
 export const readZipFile = (zip: AdmZip, name?: string) => {
-  if(!name) throw new Error("read file need file name");
-  
+  if (!name) throw new Error("read file need file name");
+
   let buffer;
   try {
     buffer = zip.readFile(name);
+    return R.pipe(
+      zip.readFile,
+      R.defaultTo(Buffer.from("")),
+      toUTF8,
+      R.toLower,
+      R.trim,
+    )(name);
   } catch (e) {
     throw new Error("Reading archive failed");
   }
 
-  return R.pipe(toUTF8, R.toLower, R.trim)(buffer!);
 };
 
-export const readZipFileRaw = (zip: AdmZip, name?: string) => {
-  if(!name) throw new Error("read file need file name");
-  
+export const readZipFileRaw = (
+  zip: AdmZip,
+  name?: string,
+) => {
+  if (!name) throw new Error("read file need file name");
+
   try {
     return zip.readFile(name);
   } catch (e) {
