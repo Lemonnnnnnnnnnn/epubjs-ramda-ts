@@ -50,7 +50,6 @@
 
     /* Emit */
     "declaration": true,                              /* 生成.d.ts文件 */
-    "declarationDir": "./@types/",
     // "declarationMap": true,                           /* vscode插件跳转用 
     // "emitDeclarationOnly": true,                      /* Only output d.ts files and not JavaScript files. */
     // "sourceMap": true,                                /* debug用 

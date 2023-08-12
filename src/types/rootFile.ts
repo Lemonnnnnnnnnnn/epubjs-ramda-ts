@@ -111,19 +111,19 @@ export interface ParsedRootFile {
 
 
 export interface Spine {
-  "@": GeneratedType8;
+  "@": SpineAt;
   itemref: Itemref[];
 }
 
-export interface GeneratedType8 {
+export interface SpineAt {
   toc: string;
 }
 
 export interface Itemref {
-  "@": GeneratedType9;
+  "@": ItemRefAt;
 }
 
-export interface GeneratedType9 {
+export interface ItemRefAt {
   idref: string;
 }
 
@@ -132,10 +132,10 @@ export interface Guide {
 }
 
 export interface Reference {
-  "@": GeneratedType10;
+  "@": ReferenceAt;
 }
 
-export interface GeneratedType10 {
+export interface ReferenceAt {
   href: string;
   title: string;
   type: string;
