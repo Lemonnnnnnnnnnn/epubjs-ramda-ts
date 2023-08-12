@@ -1,17 +1,22 @@
 {
   "name": "@lemonnn/epub-parser",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "javascript/typescript lib for parsing epub file",
   "main": "lib/main.js",
   "types": "lib/main.d.ts",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "start": "ts-node ./src/main.ts",
-    "test" : "ts-node ./src/test.ts",
-    "build": "tsc",
-    "push" : "tsc && npm publish --access public"
+    "test": "ts-node ./src/test.ts",
+    "build": "tsc && tsc-alias",
+    "push": "npm run build && npm publish --access public"
   },
-  "keywords": ["epub" , "typescript"],
+  "keywords": [
+    "epub",
+    "typescript"
+  ],
   "author": "Lyc",
   "license": "ISC",
   "dependencies": {
@@ -25,6 +30,7 @@
     "@types/xml2js": "^0.4.11",
     "prettier": "^3.0.1",
     "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.7",
     "tsconfig-paths": "^4.2.0"
   }
 }
