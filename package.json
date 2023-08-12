@@ -1,9 +1,9 @@
 {
-  "name": "@lemon/epub-parser",
-  "version": "0.0.1",
+  "name": "@lemonnn/epub-parser",
+  "version": "0.1.0",
   "description": "javascript/typescript lib for parsing epub file",
-  "main": "/lib/main.js",
-  "types": "/lib/main.d.ts",
+  "main": "lib/main.js",
+  "types": "lib/main.d.ts",
   "files": ["lib"],
   "scripts": {
     "start": "ts-node ./src/main.ts",
