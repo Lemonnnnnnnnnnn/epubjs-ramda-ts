@@ -1,7 +1,11 @@
 ## Usage
 
+```
+pnpm i @lemonnn/epub-parser
+```
+
 ```js
-import epub from '@lemon/epub-parser'
+import epub from '@lemonnn/epub-parser'
 
 // the relative path with current workspace root path
 const TEST_FILE = path.resolve("src/public/1.epub")
