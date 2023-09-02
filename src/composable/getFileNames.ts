@@ -5,7 +5,7 @@ import * as R from "ramda";
  * epub file is actually a zip file , so we parseZip it and get all file's path
  */
 
-export const getFilesName = (zip: AdmZip) => {
+export const getFileNames = (zip: AdmZip) => {
   const entries = zip.getEntries();
   return R.map(getEntryName)(entries);
 };

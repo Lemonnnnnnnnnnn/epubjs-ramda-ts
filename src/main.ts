@@ -1,7 +1,7 @@
 import * as R from "ramda";
 import AdmZip from "adm-zip";
 import {
-  getFilesName,
+  getFileNames,
   checkMimeType,
   getRootFile,
   getContainer,
@@ -44,7 +44,7 @@ const epub = async (path: string) => {
 
 const prepare = async (zip: AdmZip) => {
   const xmlparser = getXmlParser();
-  const filesName = getFilesName(zip);
+  const filesName = getFileNames(zip);
   console.log("check mime type ...");
   await checkMimeType(zip, filesName);
 

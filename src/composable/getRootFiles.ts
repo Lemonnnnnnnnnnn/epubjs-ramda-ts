@@ -8,33 +8,35 @@ import {
   EntityPkg,
 } from "@/types/container";
 
+//
 export const getRootFile = async (
   zip: AdmZip,
   xmlParser: Parser,
   container: ParserResult,
 ) => {
+  // 从 container 中查找 rootFile 的信息
   const rootFilePkg = getRootFilePkg(container);
 
   if (!rootFilePkg) {
     throw new Error("No rootfile in container file");
   }
 
+  // 解析 container 中 rootFile 的信息
   const rootFileName = R.pipe(
     getRootFileMsg,
     getRootFileName,
   )(rootFilePkg);
 
-
-  const getRootFileEntity = R.partial(_getRootFileEntity, [
+  // 从 epub 包中获取 rootFile 的数据
+  const rootFileData = await getRootFileEntity(
     zip,
     xmlParser,
-  ]);
-
-  const rootFileData =  await getRootFileEntity(rootFileName);
+    rootFileName,
+  );
   return {
-    rootFileData , 
-    rootFileName
-  }
+    rootFileData,
+    rootFileName,
+  };
 };
 
 const getRootFilePkg = (result: ParserResult) => {
@@ -71,7 +73,7 @@ const getRootFileName = (rootfilePkg: Entity) => {
   return R.trim(fullPath);
 };
 
-const _getRootFileEntity = async (
+const getRootFileEntity = async (
   zip: AdmZip,
   xmlParser: Parser,
   rootFileName: string,

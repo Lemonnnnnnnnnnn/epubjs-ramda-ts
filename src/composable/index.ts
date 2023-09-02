@@ -4,7 +4,7 @@ export { checkMimeType } from "./check";
 
 export { getRootFile } from "./getRootFiles";
 
-export { getFilesName } from "./parseZip";
+export { getFileNames } from "./getFileNames";
 
 export { parseRootFile } from "./parseRootFile";
 
